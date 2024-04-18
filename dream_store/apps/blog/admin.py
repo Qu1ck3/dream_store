@@ -49,7 +49,7 @@ class ArticleAdmin(admin.ModelAdmin):
             for tag in tags:
                 url = reverse('admin:blog_tag_change', args=(tag.id,))
                 tags_link += f"<a href='{url}'>{tag.name}</a>,"
-            return format_html(tags_link)
+            return format_html(tags_link.rstrip(", "))
         return "Тэгов нет"
 
     tag_link.short_description = 'Тэги'
