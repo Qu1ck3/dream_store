@@ -3,6 +3,7 @@ from django.utils.safestring import mark_safe
 from imagekit.models import ProcessedImageField, ImageSpecField
 from pilkit.processors import ResizeToFill
 from config.settings import MEDIA_ROOT
+from apps.user.models import User
 
 
 class BlogCategory(models.Model):
@@ -60,6 +61,11 @@ class Article(models.Model):
     category = models.ForeignKey(
         to=BlogCategory,
         verbose_name="Категория",
+        on_delete=models.SET_NULL,
+        null=True)
+    user = models.ForeignKey(
+        to=User,
+        verbose_name="Автор",
         on_delete=models.SET_NULL,
         null=True)
     image = ProcessedImageField(
