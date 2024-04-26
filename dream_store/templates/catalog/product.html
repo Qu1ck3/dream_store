@@ -1,4 +1,7 @@
 {% extends "base.html" %}
+{% block meta_tags %}
+    {% include '_meta_tags.html' with meta_title=product.get_meta_title meta_description=product.get_meta_description meta_keywords=product.get_meta_keywords %}
+{% endblock %}
 {% load static %}
 {% block content %}
     <div class="product-view">
@@ -7,8 +10,8 @@
 
             <div class="col-xs-12 col-md-6">
                 <div class="row">
-                    <div class="col-6">
-                        {% for item in product.images %}
+                    {% for item in product.images %}
+                        <div class="col-6">
                             <a href="{{ item.image.url }}" class="product-image"
                                data-lightbox="roadtrip">
                                 {% if item.image %}
@@ -18,8 +21,8 @@
                                     <img src="{% static 'no-image.png' %}" alt="">
                                 {% endif %}
                             </a>
-                        {% endfor %}
-                    </div>
+                        </div>
+                    {% endfor %}
                 </div>
             </div>
 
