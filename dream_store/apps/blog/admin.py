@@ -12,7 +12,7 @@ admin.site.register(Tag)
 class BlogCategoryAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'image_tag_thumbnail', 'article_list_link')
     list_display_links = ('id', 'name', 'image_tag_thumbnail')
-    fields = ('name', 'image_tag', 'image')
+    fields = ('name', 'image_tag', 'image', "meta_title", "meta_description", "meta_keywords")
     readonly_fields = ('image_tag',)
 
     def article_list_link(self, obj):
@@ -31,7 +31,8 @@ class BlogCategoryAdmin(admin.ModelAdmin):
 class ArticleAdmin(admin.ModelAdmin):
     list_display = ('id', 'title', 'image_tag_thumbnail', 'user', 'category_link', 'tag_link', 'created_at')
     list_display_links = ('id', 'title', 'image_tag_thumbnail')
-    fields = ('category', 'image_tag', 'user', 'image', 'tags', 'title', 'text_preview', 'text')
+    fields = ('category', 'image_tag', 'user', 'image', 'tags', 'title', 'text_preview', 'text',
+              "meta_title", "meta_description", "meta_keywords")
     readonly_fields = ('image_tag',)
     list_filter = ('category', 'tags')
 
