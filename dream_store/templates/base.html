@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     {% block meta_tags %}
-    	<title>Dream Store</title>
+        <title>Dream Store</title>
         <meta name="description" content="">
         <meta name="keywords" content="">
     {% endblock %}
@@ -17,11 +17,11 @@
             crossorigin="anonymous"></script>
     <script
 
-      src="https://code.jquery.com/jquery-3.6.0.min.js"
+            src="https://code.jquery.com/jquery-3.6.0.min.js"
 
-      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
 
-      crossorigin="anonymous"></script>
+            crossorigin="anonymous"></script>
     <script src="{% static 'lightbox/js/lightbox.min.js' %}"></script>
 </head>
 <body>
@@ -30,7 +30,8 @@
         <div class="row">
             <div class="col-6">
                 <a href="{% url 'home' %}">
-                    <img src="{% static 'photo_2024-04-21_18-25-50.jpg' %}" alt="Магазин мечты" title="Магазин мечты" id="logo">
+                    <img src="{% static 'photo_2024-04-21_18-25-50.jpg' %}" alt="Магазин мечты" title="Магазин мечты"
+                         id="logo">
                 </a>
             </div>
             <div class="col-6">
@@ -77,6 +78,9 @@
 </div>
 
 <div class="container">
+    {% block breadcrumbs %}
+    {% endblock %}
+
     {% block content %}
     {% endblock %}
 </div>
